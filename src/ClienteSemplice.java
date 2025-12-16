@@ -14,7 +14,9 @@ public class ClienteSemplice {
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             Scanner scanner = new Scanner(System.in);
 
-            System.out.println("Connesso al server. Scrivi qualcosa: ");
+            System.out.println("Dalla porta: "+ socket.getLocalPort()
+                    + " - Sulla porta: "+ socket.getPort()
+                    +" Connesso al server. Scrivi qualcosa: ");
             String userInput;
             while ((userInput = scanner.nextLine()) != null) {
                 out.println(userInput);

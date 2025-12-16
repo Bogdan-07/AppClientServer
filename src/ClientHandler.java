@@ -13,10 +13,13 @@ public class ClientHandler implements Runnable{
 
     public void run() {
         try (BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-             PrintWriter out = new PrintWriter(socket.getOutputStream(),true);){
+             PrintWriter out = new PrintWriter(socket.getOutputStream(),true)){
             String inputLine;
             while ((inputLine = in.readLine()) != null) {
-                if ("BYE".equalsIgnoreCase(inputLine)) break;
+                System.out.println(inputLine);
+                if ("BYE".equalsIgnoreCase(inputLine))
+                    break;
+
                 String response = inputLine.toUpperCase();
                 out.println("ECHO: "+ response);
             }
